@@ -7,6 +7,8 @@ import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
 
 @Injectable()
 export class SeedService {
+
+	/** 
 	constructor(@InjectModel(Pokemon.name) private readonly pokemonModel: Model<Pokemon>,
 		private readonly http: HttpAdapter) { }
 
@@ -14,17 +16,16 @@ export class SeedService {
 		await this.pokemonModel.deleteMany();
 
 		const { results = [] } = await this.http.get<Pokedex>('https://pokeapi.co/api/v2/pokemon?limit=650')
-		/*
-		const promisesList = [];
 
-		results.forEach(async ({ name, url }) => {
-			const segments = url.split('/');
-			const no = segments[segments.length - 2];
-			promisesList.push(this.pokemonModel.create({ no, name }));
-		});
+		// const promisesList = [];
 
-		await Promise.all(promisesList);
-		*/
+		//results.forEach(async ({ name, url }) => {
+			// 		const segments = url.split('/');
+			// 	const no = segments[segments.length - 2];
+			//promisesList.push(this.pokemonModel.create({ no, name }));
+			// });
+
+		// await Promise.all(promisesList);
 
 		const pokemonList = [];
 
@@ -38,4 +39,5 @@ export class SeedService {
 
 		return 'seed executed';
 	}
+**/
 }

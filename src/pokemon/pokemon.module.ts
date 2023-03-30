@@ -8,11 +8,15 @@ import { PokemonService } from './pokemon.service';
 	controllers: [PokemonController],
 	providers: [PokemonService],
 	imports: [
-		MongooseModule.forFeature([{ name: Pokemon.name, schema: PokemonSchema }])
+		MongooseModule.forFeature([
+			{
+				name: Pokemon.name,
+				schema: PokemonSchema,
+			},
+		])
 	],
 	exports: [
-		MongooseModule.forFeature([{ name: Pokemon.name, schema: PokemonSchema }]),
-		PokemonService
+		MongooseModule
 	]
 })
 export class PokemonModule { }
